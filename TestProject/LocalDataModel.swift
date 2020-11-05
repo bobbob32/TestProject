@@ -7,6 +7,13 @@
 
 import UIKit
 import SQLite
+func prepare(_ query:QueryType) throws -> AnySequence<Row> {
+    return try LocalDataModel.instance.db!.prepare(query)
+}
+
+func scalar<V : Value>(_ query: ScalarQuery<V>) -> V {
+    return try! LocalDataModel.instance.db!.scalar(query)
+}
 class LocalDataModel: NSObject {
     static var instance:LocalDataModel = LocalDataModel()
     private override init() {
@@ -20,17 +27,17 @@ class LocalDataModel: NSObject {
     
     private func getPath()->String{
         let path = NSSearchPathForDirectoriesInDomains(
-            .cachesDirectory, .userDomainMask, true
+            .documentDirectory, .userDomainMask, true
             ).first!
-        let patn = path + "/mydb.sqlite"
-        return patn
+//        let patn = (path as NSString).appendingPathComponent("mydb.sqlite")
+        return path
     }
     
     func getDbConnection()->Bool{
             do{
                 let path = getPath()
                 self.createNewPath(newPath: path)
-                self.db = try Connection(path)
+                self.db = try Connection("\(path)/db.sqlite3")
             }catch{
                 return false
             }
@@ -80,9 +87,9 @@ class LocalDataModel: NSObject {
         
         // INSERT INTO "datas" ("time", "responseData") VALUES ('Alice', 'alice@mac.com')
 
-    func searchAllDatas()->Array<Any>{
+    func searchAllDatas()->Array<Dictionary<String?,String?>>{
        
-        var array = Array<Any>()
+        var array = Array<Dictionary<String?,String?>>()
         if self.getDbConnection() == false {
             return array
         }
@@ -91,7 +98,8 @@ class LocalDataModel: NSObject {
             for data in try db!.prepare(datas) {
                 print("id: \(data[id]), time: \(data[time]), responseData: \(data[responseData])")
                 // id: 1, time: Optional("Alice"), responseData: alice@mac.com
-                array.append(data)
+                let dic = ["time":data[time],"responseData":data[responseData]]
+                array.append(dic)
             }
         }catch{
             

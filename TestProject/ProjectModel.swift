@@ -6,7 +6,6 @@
 //
 
 import UIKit
-
 class ProjectModel: NSObject {
     static  var instance:ProjectModel = ProjectModel()
     private override init() {
@@ -29,7 +28,6 @@ class ProjectModel: NSObject {
                         LocalDataModel.instance.insertToTable(responseDa:"Error")
                     }
                     
-                    let datas = LocalDataModel.instance.searchAllDatas()
                     self!.notificationUpdate(userInfo: ["state":isSuccess,"retData":retData as Any])
                 }
             }

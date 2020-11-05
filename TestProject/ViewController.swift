@@ -29,10 +29,31 @@ class ViewController: UIBaseVc {
         self.tabview.tableFooterView = UIView()
         self.tabview.register(UITableViewCell.self, forCellReuseIdentifier: indentifier)
         self.addRightNavigationBtn(itemTitle: "HistoryData", selector: #selector(pushNewVc))
+        initData()
+    }
+    func initData() {
+        let datas = LocalDataModel.instance.searchAllDatas()
+        if datas.count != 0 {
+            let retData = datas.sorted { (data1, data2) -> Bool in
+                return data1["time"] as! String > data2["time"] as! String
+            }
+          
+            self.dataList.removeAll()
+            let retdataStr = retData.last!["responseData"]
+            let retDic = retdataStr!!.toDictionary() as? Dictionary<String, String>
+            guard let mdic = retDic  else {
+                return
+            }
+            self.dataList.append(contentsOf: mdic.values)
+            //第一个是最早时间
+            DispatchQueue.main.async {
+                self.tabview.reloadData()
+            }
+        }
     }
     @objc
     private func pushNewVc(){
-        self.navigationController?.pushViewController(TestHistoryVc(), animated: true)
+        self.navigationController?.pushViewController(TestHistoryVc(), animated: false)
     }
     override func viewWillAppear(_ animated: Bool) {
         addObserver()
@@ -80,5 +101,25 @@ extension ViewController:UITableViewDelegate,UITableViewDataSource{
         return cell!
     }
     
+    
+}
+extension String {
+    
+    func toDictionary() -> [String : Any] {
+        
+        var result = [String : Any]()
+        guard !self.isEmpty else { return result }
+        
+        guard let dataSelf = self.data(using: .utf8) else {
+            return result
+        }
+        
+        if let dic = try? JSONSerialization.jsonObject(with: dataSelf,
+                           options: .mutableContainers) as? [String : Any] {
+            result = dic
+        }
+        return result
+    
+    }
     
 }
