@@ -11,6 +11,7 @@
 		C44A7B20255423E900C4C369 /* SQLite.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C44A7B1F255423E900C4C369 /* SQLite.framework */; };
 		C44A7B322554291F00C4C369 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C44A7B25255423F700C4C369 /* libsqlite3.0.tbd */; };
 		C44A7B332554291F00C4C369 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C44A7B26255423F800C4C369 /* libsqlite3.tbd */; };
+		C44A7B45255C42B400C4C369 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = C44A7B44255C42B400C4C369 /* Models.swift */; };
 		C4D3ECF52552B0F4001A4F93 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D3ECF42552B0F4001A4F93 /* AppDelegate.swift */; };
 		C4D3ECF72552B0F4001A4F93 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D3ECF62552B0F4001A4F93 /* SceneDelegate.swift */; };
 		C4D3ECF92552B0F4001A4F93 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4D3ECF82552B0F4001A4F93 /* ViewController.swift */; };
@@ -52,6 +53,7 @@
 		C44A7B1F255423E900C4C369 /* SQLite.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SQLite.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C44A7B25255423F700C4C369 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
 		C44A7B26255423F800C4C369 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		C44A7B44255C42B400C4C369 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		C4D3ECF12552B0F4001A4F93 /* TestProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C4D3ECF42552B0F4001A4F93 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C4D3ECF62552B0F4001A4F93 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -124,9 +126,18 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		C44A7B43255C429600C4C369 /* demo */ = {
+			isa = PBXGroup;
+			children = (
+				C44A7B44255C42B400C4C369 /* Models.swift */,
+			);
+			path = demo;
+			sourceTree = "<group>";
+		};
 		C4D3ECE82552B0F4001A4F93 = {
 			isa = PBXGroup;
 			children = (
+				C44A7B43255C429600C4C369 /* demo */,
 				C4D3ECF32552B0F4001A4F93 /* TestProject */,
 				C4D3ED0A2552B0F7001A4F93 /* TestProjectTests */,
 				C4D3ED152552B0F7001A4F93 /* TestProjectUITests */,
@@ -359,6 +370,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C44A7B45255C42B400C4C369 /* Models.swift in Sources */,
 				C4D3ED352552B841001A4F93 /* PNetRequest.swift in Sources */,
 				C4D3ECF92552B0F4001A4F93 /* ViewController.swift in Sources */,
 				C4D3ED852552BE59001A4F93 /* LocalDataModel.swift in Sources */,

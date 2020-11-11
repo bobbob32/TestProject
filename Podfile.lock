@@ -1,5 +1,8 @@
 PODS:
   - Alamofire (5.2.2)
+  - RxCocoa (4.5.0):
+    - RxSwift (>= 4.4.2, ~> 4.4)
+  - RxSwift (4.5.0)
   - SnapKit (5.0.1)
   - SQLite.swift (0.12.2):
     - SQLite.swift/standard (= 0.12.2)
@@ -7,20 +10,26 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 5.2.2)
+  - RxCocoa (~> 4.0)
+  - RxSwift (~> 4.0)
   - SnapKit (~> 5.0.1)
   - SQLite.swift (~> 0.12.2)
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
     - Alamofire
+    - RxCocoa
+    - RxSwift
     - SnapKit
     - SQLite.swift
 
 SPEC CHECKSUMS:
   Alamofire: 814429acc853c6c54ff123fc3d2ef66803823ce0
+  RxCocoa: cbf70265dc65a981d4ac982e513c10cf23df24a0
+  RxSwift: f172070dfd1a93d70a9ab97a5a01166206e1c575
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SQLite.swift: d2b4642190917051ce6bd1d49aab565fe794eea3
 
-PODFILE CHECKSUM: ffffc1b4b6feef8433b6f746286b9e713477e9e4
+PODFILE CHECKSUM: 2dc5bc7619b68247cbd5ff6cd5cb316af80357fe
 
 COCOAPODS: 1.9.3

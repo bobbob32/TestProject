@@ -7,6 +7,8 @@ project 'TestProject.xcodeproj'
 
 target 'TestProject' do
  pod 'SnapKit', '~> 5.0.1'
+ pod 'RxSwift','~> 4.0'
+ pod 'RxCocoa','~> 4.0'
  pod 'Alamofire', '~> 5.2.2'
  pod 'SQLite.swift', '~> 0.12.2'
 end
